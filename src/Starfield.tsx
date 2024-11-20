@@ -4,9 +4,16 @@ import Star from './shapes/Star'
 const STAR_FALLING_SPEED = 0.1
 
 export default function Starfield() {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [starComponents, setStarComponents] = useState<{ x: number; y: number }[]>([])
 
   useEffect(() => {
+    // Initialize dimensions
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+
     const canvas = document.getElementById('starfield') as HTMLCanvasElement
     const ctx = canvas.getContext('2d')
     let animationFrameId: number
@@ -23,24 +30,29 @@ export default function Starfield() {
       twinkleSpeed: number
     }[] = []
 
-    // Create canvas stars
-    for (let i = 0; i < 200; i++) {
-      stars.push({
+    function initializeStars() {
+      // Reset canvas stars
+      stars.length = 0
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.05,
+          opacity: Math.random(),
+          twinkleSpeed: Math.random() * 0.005,
+        })
+      }
+
+      // Reset 3D stars
+      const newStarComponents = Array.from({ length: 10 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.5,
-        speed: Math.random() * 0.05,
-        opacity: Math.random(),
-        twinkleSpeed: Math.random() * 0.005,
-      })
+      }))
+      setStarComponents(newStarComponents)
     }
 
-    // Create 3D stars (Star components)
-    const newStarComponents = Array.from({ length: 10 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-    }))
-    setStarComponents(newStarComponents)
+    initializeStars()
 
     function animate() {
       if (ctx) {
@@ -82,6 +94,11 @@ export default function Starfield() {
     const handleResize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+      initializeStars()
     }
 
     window.addEventListener('resize', handleResize)
@@ -95,7 +112,7 @@ export default function Starfield() {
   return (
     <div className="fixed inset-0 w-full h-full -z-10">
       <canvas id="starfield" className="absolute inset-0 w-full h-full" />
-      {starComponents.map((star, index) => (
+      {dimensions.width > 0 && starComponents.map((star, index) => (
         <Star
           key={index}
           style={{
