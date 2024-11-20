@@ -1,29 +1,21 @@
 IN EARLY DEVELOPMENT.
 
-## Code Examples:
+## Quickstart/Code Examples:
 
 ### Next.js + Tailwind:
-
-#### StarfieldWrapper.tsx
-
-```
-"use client";
-import { Starfield } from "battlezone-shapes"
-
-export default function StarfieldWrapper() {
-	return <div className="fixed inset-0 -z-10">
-		<Starfield />
-	</div>
-}
-
-```
 
 #### layout.tsx
 
 ```typescript
-import type { Metadata } from "next";
+"use client";
 import "./globals.css";
-import StarfieldWrapper from "@/components/StarfieldWrapper";
+import { Starfield } from "battlezone-shapes"
+import { Inconsolata } from 'next/font/google'
+
+const font = Inconsolata({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+})
 
 export default function RootLayout({
   children,
@@ -32,8 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col min-h-screen w-full`}>
-        <StarfieldWrapper />
+      <body className={`${font.className} flex flex-col min-h-screen w-full`}>
+        <Starfield className="fixed inset-0 -z-10"/>
         {children}
       </body>
     </html>
