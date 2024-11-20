@@ -33,7 +33,9 @@ export default {
     terser(),
     typescript({
       tsconfig: './tsconfig.json',
-      declarationDir: './dist'
+      declaration: true,
+      declarationDir: './dist',
+      exclude: ['**/__tests__/**']
     })
   ],
   external: ['react', 'react-dom'],

@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, forwardRef } from 'react'
 import Star from './shapes/Star'
 
 const STAR_FALLING_SPEED = 0.1
 
-export default function Starfield() {
+interface StarfieldProps {
+  className?: string;
+}
+
+const Starfield = forwardRef<HTMLDivElement, StarfieldProps>(({ className }, ref) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [starComponents, setStarComponents] = useState<{ x: number; y: number }[]>([])
 
@@ -110,7 +114,7 @@ export default function Starfield() {
   }, [])
 
   return (
-    <div className="fixed inset-0 w-full h-full -z-10">
+    <div ref={ref} className={`fixed inset-0 w-full h-full -z-10 ${className || ''}`}>
       <canvas id="starfield" className="absolute inset-0 w-full h-full" />
       {dimensions.width > 0 && starComponents.map((star, index) => (
         <Star
@@ -129,4 +133,8 @@ export default function Starfield() {
       ))}
     </div>
   )
-}
+})
+
+Starfield.displayName = 'Starfield'
+
+export default Starfield
