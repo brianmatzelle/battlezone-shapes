@@ -1,10 +1,16 @@
-IN EARLY DEVELOPMENT.
+IN EARLY DEVELOPMENT. 
+
+# About
+
+This package allows you to easily add landscapes and shapes to your project that are in the theme of Battlezone, the retro video game!
+
+[GitHub repository](https://github.com/brianmatzelle/battlezone-shapes)
 
 ## Quickstart/Code Examples:
 
 ### Starfield landscape demo:
 
-![demo](demo/starfield-demo.gif "Starfield Demo")
+![demo](https://github.com/brianmatzelle/battlezone-shapes/blob/main/demo/starfield-demo.gif?raw=true "Starfield Demo")
 
 ##### Next.js + Tailwind:
 
