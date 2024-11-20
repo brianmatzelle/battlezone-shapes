@@ -2,7 +2,11 @@ IN EARLY DEVELOPMENT.
 
 ## Quickstart/Code Examples:
 
-### Next.js + Tailwind:
+### Starfield landscape demo:
+
+![demo](demo/starfield-demo.gif "Starfield Demo")
+
+##### Next.js + Tailwind:
 
 #### layout.tsx
 
