@@ -1,4 +1,4 @@
-IN EARLY DEVELOPMENT. 
+IN EARLY DEVELOPMENT. Still adding code example documentation, there are more componenets than listed below.
 
 # About
 
