@@ -1,4 +1,4 @@
-IN EARLY DEVELOPMENT. 
+IN EARLY DEVELOPMENT.
 
 # About
 
@@ -42,3 +42,16 @@ export default function RootLayout({
   );
 }
 ```
+
+## Todo
+
+- [ ] Add documentation for the Star component
+- [ ] Starfield component:
+
+  - [ ] Add customization props
+  - [ ] Implement occasional supernovas
+- [ ] Create shapes
+
+  - [ ] cube
+  - [ ] pyramid
+  - [ ] ?
