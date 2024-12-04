@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-IN EARLY DEVELOPMENT.
-=======
 IN EARLY DEVELOPMENT. Still adding code example documentation, there are more componenets than listed below.
->>>>>>> b8412c4dc3dffdfe3f8df535d930c300d136df70
 
 # About
 
