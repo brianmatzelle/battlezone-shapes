@@ -5,6 +5,7 @@ IN EARLY DEVELOPMENT. Still adding code example documentation, there are more co
 This package allows you to easily add landscapes and shapes to your project that are in the theme of Battlezone, the retro video game!
 
 [npm package](https://www.npmjs.com/package/battlezone-shapes)
+
 [GitHub repository](https://github.com/brianmatzelle/battlezone-shapes)
 
 ## Quickstart/Code Examples:
